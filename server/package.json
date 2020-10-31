@@ -16,8 +16,10 @@
     "mongoose": "^5.10.11",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.6",
+    "passport": "^0.4.1",
     "swagger-jsdoc": "^5.0.0",
-    "swagger-ui-express": "^4.1.4"
+    "swagger-ui-express": "^4.1.4",
+    "yamljs": "^0.3.0"
   },
   "scripts": {
     "server": "nodemon index.js"

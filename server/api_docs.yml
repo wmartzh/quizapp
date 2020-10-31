@@ -1,0 +1,47 @@
+openapi: 3.0.0
+info:
+  title: Simple QuizApp
+  description: 😎 a cool api
+  version: 0.0.1
+servers:
+  - url: http://localhost:8000/v1/
+    description: localhost server
+tags:
+  - name: Authentication
+    description: authentication for users
+paths:
+  /auth/register:
+    post:
+      summary: Register a new User
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          aplication/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  required: true
+                name:
+                  type: string
+        
+                email:
+                  type: string
+                  required: true
+                password:
+                  type: string
+                  required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad request. User ID must be an integer and larger than 0.
+        "401":
+          description: Authorization information is missing or invalid.
+        "404":
+          description: A user with the specified ID was not found.
+        "5XX":
+          description: Unexpected error.
