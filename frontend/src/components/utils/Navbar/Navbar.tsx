@@ -16,7 +16,7 @@ const IconApp = styled.div`
 export const Navbar: React.FC = ({ children }) => {
   return (
     <Flex justifyContent="center">
-      <Margin value="24px 0 100px 0">
+      <Margin value="24px 0 34px 0">
         <IconApp>
           Quizz<span>app</span>
         </IconApp>

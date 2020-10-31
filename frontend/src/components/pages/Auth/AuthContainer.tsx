@@ -14,7 +14,7 @@ export const AuthContainer: React.FC<{ title: string }> = ({
 
   return (
     <Container width="410px">
-      <Margin value="0 0 24px">
+      <Margin value="100px 0 24px">
         <Card shadow padding="24px">
           <Flex justifyContent="center">
             <Font fontSize="24px" fontWeight="700">

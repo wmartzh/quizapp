@@ -1,6 +1,7 @@
 export { Box } from './Box.styled'
 export { Margin } from './Margin.styled'
 export { Button } from './Button.styled'
+export { Grid } from './Grid.styled'
 export { Flex } from './Flex.styled'
 export { Card } from './Card.styled'
 export { Container } from './Container.styled'
