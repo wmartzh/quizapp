@@ -1,6 +1,7 @@
 import { Dashboard, SignIn, SignUp } from '../components/pages'
 
 export { Router } from './Routes'
+export { API_ROUTES } from './apiRoutes'
 
 export const ROUTES = [
   {
