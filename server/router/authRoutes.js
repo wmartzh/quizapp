@@ -2,16 +2,11 @@ const router = require("express").Router();
 const bodyParser = require("body-parser");
 const authController = require("../controllers/authController");
 
-/**
- * @swagger
- * /auth/register:
- *  post:
- *      description: Register a new user
- *      requestBody:
- *          required:true
 
- * 
- **/
-router.post("/register", bodyParser.json(), authController.storeUser);
+router.use(bodyParser.json());
+
+router.post("/register", authController.storeUser);
+router.post("/login", authController.login);
+
 
 module.exports = router;

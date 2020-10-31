@@ -22,7 +22,14 @@ userSchema.statics.getAll= async function () {
 	let user = await this.find({});
 	return user;
 };
-
+userSchema.statics.updateToken = async function (id, token) {
+	let user = await this.findOneAndUpdate(
+		{ _id: id },
+		{ remember_token: token },
+		{ new: true }
+	);
+	return user;
+};
 const User = mongoose.model("Users", userSchema);
 
 module.exports = { userSchema, User };
