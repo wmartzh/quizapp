@@ -27,7 +27,7 @@ paths:
                   required: true
                 name:
                   type: string
-        
+
                 email:
                   type: string
                   required: true
@@ -37,6 +37,52 @@ paths:
       responses:
         "200":
           description: OK
+        "400":
+          description: Bad request. User ID must be an integer and larger than 0.
+        "401":
+          description: Authorization information is missing or invalid.
+        "404":
+          description: A user with the specified ID was not found.
+        "5XX":
+          description: Unexpected error.
+
+
+  /auth/login:
+    post:
+      summary: Login User
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          aplication/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  required: true
+                name:
+                  type: string
+
+                email:
+                  type: string
+                  required: true
+                password:
+                  type: string
+                  required: true
+      responses:
+        "200":
+          description: User Athenticated successfully
+          content: 
+            aplication/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  access_token:
+                    type: string
         "400":
           description: Bad request. User ID must be an integer and larger than 0.
         "401":

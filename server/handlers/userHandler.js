@@ -69,10 +69,12 @@ const authenticate = async (params) => {
 						algorithm: "HS256",
 						expiresIn: process.env.TOKEN_EXPIRES,
 					});
-					const remember_tk = jwt.sign(payload, process.env.PRIVATE_KEY, {
-						algorithm: "HS256",
-						expiresIn: process.env.TOKEN_EXPIRES * 30,
-					});
+
+					//TODO Remember token pending
+					// const remember_tk = jwt.sign(payload, process.env.PRIVATE_KEY, {
+					// 	algorithm: "HS256",
+					// 	expiresIn: process.env.TOKEN_EXPIRES * 30,
+					// });
 
 					return { message: "Authentication successful", access_token: tk };
 				} else {
