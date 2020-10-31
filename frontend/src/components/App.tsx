@@ -1,13 +1,12 @@
 import React from 'react'
-import { SignIn } from './pages/Auth/SignIn'
+import { Router } from '../routes'
 import { Navbar } from './utils/Navbar'
 
 export const App: React.FC = () => {
   return (
     <>
       <Navbar />
-      {/* <Router /> */}
-      <SignIn />
+      <Router />
     </>
   )
 }

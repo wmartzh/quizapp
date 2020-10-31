@@ -3,8 +3,9 @@ import { InputText, InputArea } from '../styled/Input.styled'
 import { SetErrorType } from '../model/InputTypes'
 
 interface Props {
-  type: 'text' | 'textarea' | 'file'
+  type: 'text' | 'textarea' | 'password'
   placeholder: string
+  autofocus?: boolean
   inputData?: string | null
   onChangeHandler: (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -15,13 +16,15 @@ interface Props {
 export const InputTextAndArea: React.FC<Props> = ({
   type,
   placeholder,
+  autofocus,
   inputData,
   onChangeHandler,
   setError
 }) => {
   // TODO: management Errors
-  return type === 'text' ? (
+  return type !== 'textarea' ? (
     <InputText
+      autoFocus={autofocus}
       type={type}
       placeholder={placeholder}
       onChange={onChangeHandler}
