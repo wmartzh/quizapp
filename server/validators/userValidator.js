@@ -5,8 +5,8 @@ const userValidator = joi.object({
 	name: joi.string().allow(null),
 	email: joi
 		.string()
-		.email({ minDomainSegments: 2, tlds: { allow: ["com", "net"] } }),
+		.email({ minDomainSegments: 2, tlds: { allow: ["com", "net"] } }).required(),
 	password: joi.string().required(),
 });
 
-module.exports = userValidator;
+module.exports = { userValidator };
