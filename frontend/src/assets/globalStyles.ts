@@ -9,7 +9,6 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Poppins', 'Sans Serif';
   }
   body {
-    background: #f7f7f7;
+    background: ${props => props.theme.primary.main};
   }
 `
-
