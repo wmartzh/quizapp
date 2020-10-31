@@ -1,0 +1,23 @@
+{
+  "name": "quizapp_server",
+  "version": "1.0.0",
+  "description": "Simple server",
+  "main": "index.js",
+  "repository": "https://github.com/wmartzh/quizapp",
+  "author": "devwarecorp",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "joi": "^17.3.0",
+    "mongoose": "^5.10.11",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.6",
+    "swagger-jsdoc": "^5.0.0",
+    "swagger-ui-express": "^4.1.4"
+  },
+  "scripts": {
+    "server": "nodemon index.js"
+  }
+}
