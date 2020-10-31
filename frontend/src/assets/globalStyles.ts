@@ -1,7 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,600;1,400&display=swap');
   * {
     margin: 0;
     padding: 0;
@@ -9,6 +8,9 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Poppins', 'Sans Serif';
   }
   body {
+    #root {
+      min-height: 100vh;
+    }
     background: ${props => props.theme.primary.main};
   }
 `

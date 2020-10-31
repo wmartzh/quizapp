@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 import { Flex, Box } from '../../shared'
 import { DisplayLabel } from './utils/DisplayLabel'
 import { InputTextAndArea } from './utils/InputTextAndArea'
-import { InputGroupFile } from './InputGroupFile'
 import { ErrorLabel } from './utils/ErrorLabel'
 
 interface Props {
-  type: 'text' | 'textarea' | 'file'
+  type: 'text' | 'textarea' | 'password'
   label?: string
+  autofocus?: boolean
   placeholder: string
   width?: string
   setInputData: React.Dispatch<React.SetStateAction<any | null>>
@@ -18,6 +18,7 @@ interface Props {
 export const InputGroup: React.FC<Props> = ({
   type,
   label,
+  autofocus,
   placeholder,
   width,
   setInputData,
@@ -33,22 +34,16 @@ export const InputGroup: React.FC<Props> = ({
     <Box width={width}>
       <Flex flexFlow="column">
         <DisplayLabel label={label} />
-        {type === 'text' || type === 'textarea' ? (
-          <InputTextAndArea
-            onChangeHandler={onChangeHandler}
-            placeholder={placeholder}
-            type={type}
-            inputData={inputData}
-            setError={setError}
-          />
-        ) : null}
-        {type === 'file' ? (
-          <InputGroupFile
-            placeholder={placeholder}
-            setInputData={setInputData}
-            setError={setError}
-          />
-        ) : null}
+
+        <InputTextAndArea
+          autofocus={autofocus}
+          onChangeHandler={onChangeHandler}
+          placeholder={placeholder}
+          type={type}
+          inputData={inputData}
+          setError={setError}
+        />
+
         {error ? <ErrorLabel error={error} /> : <Box height="21px" />}
         <Box height="9px" />
       </Flex>

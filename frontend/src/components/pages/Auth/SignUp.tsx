@@ -1,23 +1,25 @@
 import React, { useState } from 'react'
 import { Button } from '../../shared'
 import { InputGroup } from '../../utils/Input'
-import { signInService } from './auth.service'
+import { signUpService } from './auth.service'
 import { AuthContainer } from './AuthContainer'
 
-export const SignIn: React.FC = () => {
+export const SignUp: React.FC = ({ children }) => {
   const [error, setError] = useState({
     email: '',
-    password: ''
+    password: '',
+    username: ''
   })
+  const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
   const submitHandler = () => {
-    console.log(signInService({ email, password }))
+    console.log(signUpService({ email, password, username }))
   }
 
   return (
-    <AuthContainer title="SignIn">
+    <AuthContainer title="SignUp">
       <InputGroup
         autofocus
         type="text"
@@ -28,6 +30,14 @@ export const SignIn: React.FC = () => {
         inputError={error.email}
       />
       <InputGroup
+        type="text"
+        label="Username"
+        placeholder=""
+        setInputData={setUsername}
+        inputData={username}
+        inputError={error.username}
+      />
+      <InputGroup
         type="password"
         label="Password"
         placeholder=""
@@ -36,7 +46,7 @@ export const SignIn: React.FC = () => {
         inputError={error.password}
       />
       <Button onClick={submitHandler} disable={!email && !password}>
-        start
+        Start!!
       </Button>
     </AuthContainer>
   )

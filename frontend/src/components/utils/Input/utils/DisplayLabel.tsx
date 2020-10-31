@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { InputLabel } from '../styled/Input.styled'
 import { Box, Flex } from '../../../shared'
 /* import { IconInfo } from '../../../icon' */
@@ -8,10 +8,8 @@ interface Props {
 }
 
 export const DisplayLabel: React.FC<Props> = ({ label }) => {
-  const [focus, setFocus] = useState(false)
-
   return label ? (
-    <Flex flexFlow="row" onMouseOver={() => setFocus(true)}>
+    <Flex flexFlow="row">
       <InputLabel style={{ margin: '0 6px 0 0' }}>{label}</InputLabel>
       {/* <IconInfo width="12" height="12" /> */}
     </Flex>
