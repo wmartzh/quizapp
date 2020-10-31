@@ -6,23 +6,23 @@ const userSchema = mongoose.Schema({
 	email: "string",
 	password: "string",
 	remember_token: "string",
-	timestamps: { createdAt: "created_at", updatedAt: "updated_at" },
-});
+	
+},{timestamp:true});
 
-userSchema.statics.getByEmail(function(email){
-    let user = await this.find({email:email});
-    return user
-});
+userSchema.statics.getByEmail = async function (email) {
+	let user = await this.find({ email: email });
+	return user;
+};
 
-userSchema.statics.getById(function(id){
-    let user = await this.find({_id:id});
-    return user
-});
-userSchema.statics.getAll(function(){
-    let user = await this.find({});
-    return user
-});
+userSchema.statics.getById =async function (id) {
+	let user = await this.find({ _id: id });
+	return user;
+};
+userSchema.statics.getAll= async function () {
+	let user = await this.find({});
+	return user;
+};
 
-const User = mongoose.model("Users",userSchema);
+const User = mongoose.model("Users", userSchema);
 
 module.exports = { userSchema, User };
