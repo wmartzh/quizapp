@@ -4,6 +4,7 @@ interface SignInI {
   email: string
   password: string
 }
+
 interface SignUpI extends SignInI {
   name: string
   username: string
@@ -21,15 +22,16 @@ const Fetch = async (body: any, URI: string) => {
 }
 
 export const signInService = async ({ email, password }: SignInI) => {
-  console.log(Fetch({ email, password }, API_ROUTES.auth.signin))
-  return 'success'
+  const response = Fetch({ email, password }, API_ROUTES.auth.signin)
+  return response
 }
 
 export const signUpService = ({ email, name, username, password }: SignUpI) => {
-  console.log(
-    Fetch({ email, name, username, password }, API_ROUTES.auth.signup)
+  const response = Fetch(
+    { email, name, username, password },
+    API_ROUTES.auth.signup
   )
-  return 'success'
+  return response
 }
 
 export const logoutService = () => {

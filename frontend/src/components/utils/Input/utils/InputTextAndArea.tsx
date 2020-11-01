@@ -3,7 +3,7 @@ import { InputText, InputArea } from '../styled/Input.styled'
 import { SetErrorType } from '../model/InputTypes'
 
 interface Props {
-  type: 'text' | 'textarea' | 'password'
+  type: 'text' | 'textarea' | 'password' | 'email'
   placeholder: string
   autofocus?: boolean
   inputData?: string | null

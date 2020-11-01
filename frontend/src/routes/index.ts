@@ -1,4 +1,4 @@
-import { Dashboard, SignIn, SignUp } from '../components/pages'
+import { CreateQuiz, Dashboard, SignIn, SignUp } from '../components/pages'
 
 export { Router } from './Routes'
 export { API_ROUTES } from './apiRoutes'
@@ -27,5 +27,11 @@ export const ROUTES = [
     path: '/signup',
     component: SignUp,
     auth: false
+  },
+  {
+    name: 'Create Quiz',
+    path: '/create-quiz',
+    component: CreateQuiz,
+    auth: true
   }
 ]

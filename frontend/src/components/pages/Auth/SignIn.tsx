@@ -20,7 +20,7 @@ export const SignIn: React.FC = () => {
     <AuthContainer title="SignIn">
       <InputGroup
         autofocus
-        type="text"
+        type="email"
         label="Email"
         placeholder=""
         setInputData={setEmail}
