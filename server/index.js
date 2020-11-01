@@ -15,7 +15,7 @@ connection();
 var corsOptions = {
 	origin: [
 		"127.0.0.1:" + process.env.SERVER_PORT,
-		"http:localhost:" + process.env.CORS_PORT,
+		"http://localhost:" + process.env.CORS_PORT,
 	],
 };
 
