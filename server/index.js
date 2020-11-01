@@ -17,6 +17,9 @@ var corsOptions = {
 		"127.0.0.1:" + process.env.SERVER_PORT,
 		"http://localhost:" + process.env.CORS_PORT,
 	],
+	allowedHeaders:[
+		"Content-Type","Authorization"
+	]
 };
 
 const port = process.env.SERVER_PORT;
