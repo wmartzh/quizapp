@@ -6,13 +6,17 @@ const cors = require("cors");
 const swaggerUi = require("swagger-ui-express");
 const apiDoc = yaml.load("./api_docs.yml");
 const connection = require("./connection");
+const { allow } = require("joi");
 
 const app = express();
 
 connection();
 
 var corsOptions = {
-	origin: "127.0.0.1:" + process.env.CORS_PORT,
+	origin: [
+		"127.0.0.1:" + process.env.SERVER_PORT,
+		"http:localhost:" + process.env.CORS_PORT,
+	],
 };
 
 const port = process.env.SERVER_PORT;
