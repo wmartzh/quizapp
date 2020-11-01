@@ -66,8 +66,8 @@ const authenticate = async (params) => {
 					};
 
 					const tk = jwt.sign(payload, process.env.PRIVATE_KEY, {
-						algorithm: "HS256",
 						expiresIn: process.env.TOKEN_EXPIRES,
+						algorithm: "HS256",
 					});
 
 					//TODO Remember token pending
@@ -85,7 +85,7 @@ const authenticate = async (params) => {
 			}
 		}
 	} catch (error) {
-		console.error(error);
+		console.log(error);
 	}
 };
 

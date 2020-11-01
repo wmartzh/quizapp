@@ -1,11 +1,13 @@
 const mongoose = require("mongoose");
 
-const answerSchema = mongoose.Schema({
-	question_id: mongoose.SchemaType.ObjectId,
-    title:"string",
-    isCorrect: mongoose.SchemaType.Boolean,
+const answerSchema = mongoose.Schema(
+	{
+		question_id: "string",
+		title: "string",
+		isCorrect: "boolean",
+	},
+	{ timestamp: true }
+);
 
-},{timestamp:true});
-
-const Answer = mongoose.model("Answers", userSchema);
-module.exports = {Answer,answerSchema}
+const Answer = mongoose.model("Answers", answerSchema);
+module.exports = { Answer, answerSchema };

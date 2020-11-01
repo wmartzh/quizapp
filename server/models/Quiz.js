@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
-const questionSchema = require("./Question");
+const {questionSchema} = require("./Question");
 const quizSchema = mongoose.Schema(
 	{
-		user_id: mongoose.SchemaType.ObjectId,
+		user_id: "string",
 		title: "string",
 		description: "string",
 		questions: [questionSchema],

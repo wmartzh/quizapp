@@ -24,6 +24,6 @@
     "yamljs": "^0.3.0"
   },
   "scripts": {
-    "server": "nodemon index.js"
+    "server": "nodemon index.js --tracewarnings"
   }
 }

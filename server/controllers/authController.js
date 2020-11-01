@@ -1,5 +1,5 @@
 const userHandler = require("../handlers/userHandler");
-
+const messageHelper = require("../helpers/messageHelper");
 const storeUser = async (req, res) => {
 	try {
 		let newUser = await userHandler.createUser(req.body);
@@ -9,7 +9,7 @@ const storeUser = async (req, res) => {
 			res.status(201).json(newUser);
 		}
 	} catch (error) {
-		res.status(500).json("Server Internal Error");
+		res.status(500).json(messageHelper.error("Server Internal Error",error));
 	}
 };
 

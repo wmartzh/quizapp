@@ -46,7 +46,6 @@ paths:
         "5XX":
           description: Unexpected error.
 
-
   /auth/login:
     post:
       summary: Login User
@@ -74,7 +73,7 @@ paths:
       responses:
         "200":
           description: User Athenticated successfully
-          content: 
+          content:
             aplication/json:
               schema:
                 type: object
@@ -83,6 +82,48 @@ paths:
                     type: string
                   access_token:
                     type: string
+        "400":
+          description: Bad request. data was not correctly formatted
+        "401":
+          description: Authorization information is missing or invalid.
+        "404":
+          description: A user with the specified ID was not found.
+        "5XX":
+          description: Unexpected error.
+  /quiz:
+    post:
+      summary: Create a new quiz
+      tags:
+        - Quiz
+      security:
+        - BearerAuth:
+          type: http
+          scheme: bearer
+   
+
+      requestBody:
+        required: true
+        content:
+          aplication/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  required: true
+                name:
+                  type: string
+
+                email:
+                  type: string
+                  required: true
+                password:
+                  type: string
+                  required: true
+      responses:
+        "200":
+          description: User Athenticated successfully
+
         "400":
           description: Bad request. User ID must be an integer and larger than 0.
         "401":
