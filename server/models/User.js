@@ -10,7 +10,7 @@ const userSchema = mongoose.Schema({
 },{timestamp:true});
 
 userSchema.statics.getByEmail = async function (email) {
-	let user = await this.find({ email: email });
+	let user = await this.findOne({ email: email });
 	return user;
 };
 

@@ -2,9 +2,10 @@ const { Quiz } = require("../models/Quiz");
 const { Question } = require("../models/Question");
 const { Answer } = require("../models/Answer");
 const messageHelper = require("../helpers/messageHelper");
-const quizValidator = require("../validators/quizValidator");
+const {quizValidator} = require("../validators/quizValidator");
 const createQuiz = async (params) => {
 	try {
+		
 		const { error, value } = quizValidator.validate(params);
 
 		if (error) {
@@ -41,6 +42,7 @@ const createQuiz = async (params) => {
 			return newQuiz;
 		}
 	} catch (error) {
+		console.log(error);
 		return messageHelper.error("Exception", error);
 	}
 };

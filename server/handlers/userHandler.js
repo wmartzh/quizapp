@@ -6,6 +6,7 @@ const {
 const { User } = require("../models/User");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const jose = require("jose");
 
 const createUser = async (data) => {
 	try {
@@ -56,8 +57,8 @@ const authenticate = async (params) => {
 			return messageHelper.error(error);
 		} else {
 			let user = await User.getByEmail(value.email);
-
-			if (user.length > 0) {
+			console.log(user);
+			if (user) {
 				if (checkPassword(value.password, value.password)) {
 					const payload = {
 						check: true,
@@ -65,16 +66,9 @@ const authenticate = async (params) => {
 						email: user.email,
 					};
 
-					const tk = jwt.sign(payload, process.env.PRIVATE_KEY, {
-						expiresIn: process.env.TOKEN_EXPIRES,
-						algorithm: "HS256",
+					const tk = jose.JWT.sign(payload, process.env.PRIVATE_KEY, {
+						expiresIn: "5 days",
 					});
-
-					//TODO Remember token pending
-					// const remember_tk = jwt.sign(payload, process.env.PRIVATE_KEY, {
-					// 	algorithm: "HS256",
-					// 	expiresIn: process.env.TOKEN_EXPIRES * 30,
-					// });
 
 					return { message: "Authentication successful", access_token: tk };
 				} else {
