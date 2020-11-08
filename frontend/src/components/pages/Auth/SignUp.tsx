@@ -35,7 +35,7 @@ export const SignUp: React.FC = () => {
       />
       <InputGroup
         autofocus
-        type="text"
+        type="email"
         label="Email"
         placeholder=""
         setInputData={setEmail}

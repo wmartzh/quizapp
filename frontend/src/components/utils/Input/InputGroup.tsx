@@ -5,7 +5,7 @@ import { InputTextAndArea } from './utils/InputTextAndArea'
 import { ErrorLabel } from './utils/ErrorLabel'
 
 interface Props {
-  type: 'text' | 'textarea' | 'password'
+  type: 'text' | 'textarea' | 'password' | 'email'
   label?: string
   autofocus?: boolean
   placeholder: string
@@ -13,6 +13,7 @@ interface Props {
   setInputData: React.Dispatch<React.SetStateAction<any | null>>
   inputData?: string | null
   inputError?: string
+  outline?: boolean
 }
 
 export const InputGroup: React.FC<Props> = ({
@@ -23,7 +24,8 @@ export const InputGroup: React.FC<Props> = ({
   width,
   setInputData,
   inputData,
-  inputError
+  inputError,
+  outline
 }) => {
   const [error, setError] = useState<string | null>(inputError!)
   const onChangeHandler = (

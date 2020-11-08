@@ -26,15 +26,13 @@ const SpecialContainer = styled.div`
   }
 `
 
-export const UserAndTitle: React.FC = () => {
+export const UserAndTitle: React.FC<{ title?: string }> = ({ title }) => {
   const user = { username: 'Jafet' }
   return (
     <SpecialContainer>
       <div className="user">{user.username}</div>
       <div className="logout">logout</div>
-      <Margin value="57px 0 0 0">
-        <h1>Quizzes</h1>
-      </Margin>
+      <Margin value="57px 0 0 0">{title && <h1>{title}</h1>}</Margin>
     </SpecialContainer>
   )
 }
